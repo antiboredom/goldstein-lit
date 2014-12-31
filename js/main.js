@@ -1,4 +1,6 @@
 function load_book(url) {
+  d3.select('#main').html('loading...');
+  d3.selectAll('#graph, #actors, #events, #victims').html('');
   d3.csv(url, function(error, data){
     data = data.filter(function(item) {
       return item.goldstein_score != "" && item.actor1 != "" && item.actor2 != "";
