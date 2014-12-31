@@ -1,0 +1,40 @@
+.event {
+  margin: 20px 0px;
+}
+
+#graph path {
+  stroke: #000;
+  stroke-width: 1;
+  fill: none;
+}
+
+body {
+  font: 14px Palatino serif;
+}
+
+.lists a {
+  display: block;
+}
+
+.tt {
+	position: absolute;
+	z-index: 10;
+	visibility: hidden;
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 500px;
+}
+
+.f_actor, .f_victim {
+  text-decoration: underline;
+  background-color: #fff;
+  font-weight: normal;
+}
+
+#graph {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 400px;
+}

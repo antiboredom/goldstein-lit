@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Analyzer</title>
+  <meta name="author" content="Sam Lavigne">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css?v=2.0">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <select id="books">
+          <option value="rainbow">Gravity's Rainbow</option>
+          <option value="war_peace3">War & Peace</option>
+          <option value="magic_mountain">Magic Mountain</option>
+          <option value="middlemarch">Middlemarch</option>
+          <option value="man_without_qualities">Man Without Qualities</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <!--<div class="col-md-1">-->
+        <div id="graph"></div>
+      <!--</div>-->
+      <div class="col-md-6">
+        <div id="main"></div>
+      </div>
+      <div class="col-md-5 lists">
+        <h3>Top Actors</h3>
+        <div id="actors"></div>
+        <h3>Top Victims</h3>
+        <div id="victims"></div>
+        <h3>Top Events</h3>
+        <div id="events"</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/d3.js"></script>
+  <script src="js/country_codes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
