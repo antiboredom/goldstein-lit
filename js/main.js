@@ -196,9 +196,9 @@ var tooltip = d3.select("body")
   .attr('class', 'tt')
 
 d3.select('#books').on('change', function(){
-  load_book('/csv/' + this.value + '.csv');
+  load_book('csv/' + this.value + '.csv');
 });
 
-load_book('/csv/rainbow.csv');
+load_book('csv/rainbow.csv');
 
 
