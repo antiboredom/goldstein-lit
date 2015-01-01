@@ -1,3 +1,7 @@
+.container {
+  width: 970px !important;
+}
+
 .event {
   margin: 20px 0px;
 }
