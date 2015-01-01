@@ -8,6 +8,11 @@
   fill: none;
 }
 
+#graph text {
+  font-size: 11px;
+  fill: #999;
+}
+
 body {
   font: 14px Palatino serif;
 }
@@ -32,9 +37,9 @@ body {
   font-weight: normal;
 }
 
-#graph {
-  position: absolute;
-  left: 0;
-  top: 20px;
-  width: 400px;
-}
+/*#graph {*/
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*top: 20px;*/
+  /*width: 400px;*/
+/*}*/
