@@ -83,29 +83,35 @@ function main_text(data) {
 
   events
     .on('mouseover', function(d){
-      d3.select(this).classed('hover', true);
+      //d3.select(this).classed('hover', true);
+      var coords = this.getBoundingClientRect();
       tooltip.style('visibility', 'visible').html(decorate_event(d));
+      //tooltip.style('top', this.offsetTop + coords.height + 20 + 'px').style('left', coords.left + 'px');
+      tooltip
+        .style('top', this.offsetTop + 20 + 'px')
+        .style('left', coords.left - 410 + 'px');
     })
     .on('mouseout', function(){
-      d3.select(this).classed('hover', false);
+      //d3.select(this).classed('hover', false);
       tooltip.style('visibility', 'hidden');
     })
     .on('mousemove', function(){
-      tooltip.style('top', (event.pageY - 10) + 'px').style('left', (event.pageX + 10) + 'px');
+      //tooltip.style('top', d3.select(this).offsetTop + 'px').style('left', (event.pageX + 10) + 'px');
+      //tooltip.style('top', (event.pageY - 10) + 'px').style('left', (event.pageX + 10) + 'px');
     })
 
-  events.append('div')
+  events.append('a')
     .attr('class', 'actor')
     .text(function(d){ return clean_actor(d.actor1) })
     .on('click', function(d) { filter(data, 'actor1', d.actor1) });
 
-  events.append('div')
+  events.append('a')
     .attr('class', 'description')
     //.text(function(d){ return d.goldstein_score + ' ' + clean_event(d.event_description) })
     .text(function(d){ return clean_event(d.event_description) })
     .on('click', function(d) { filter(data, 'event_description', d.event_description) });
 
-  events.append('div')
+  events.append('a')
     .attr('class', 'victim')
     .text(function(d){ return clean_actor(d.actor2) })
     .on('click', function(d) { filter(data, 'actor2', d.actor2) });
@@ -230,6 +236,7 @@ function the_big_list(data) {
     .attr('class', 'cat')
 
   cats.append('h3')
+    .append('a')
     .html(function(d) { return clean_event(d.key); })
     .on('click', function(d) {filter(data, 'event_description', d.values[0].event_description)})
 
@@ -249,17 +256,22 @@ function the_big_list(data) {
       tooltip.style('visibility', 'hidden');
     })
     .on('mousemove', function(){
-      tooltip.style('top', (event.pageY - 10) + 'px').style('left', (event.pageX + 10) + 'px');
+      //tooltip.style('top', (event.pageY - 10) + 'px').style('left', (event.pageX + 10) + 'px');
+      //tooltip.style('top', this.offsetTop + coords.height + 20 + 'px').style('left', coords.left + 'px');
+      var coords = this.getBoundingClientRect();
+      tooltip
+        .style('top', this.offsetTop + 20 + 'px')
+        .style('left', coords.left - 410 + 'px');
     })
 
-  cats.append('span')
+  cats.append('a')
     .text(function(d) { return clean_actor(d.actor1); })
     .on('click', function(d) { filter(data, 'actor1', d.actor1); })
 
   cats.append('span')
     .text(function(d) { return ' -> '; })
 
-  cats.append('span')
+  cats.append('a')
     .text(function(d) { return clean_actor(d.actor2); })
     .on('click', function(d) { filter(data, 'actor2', d.actor2); })
 
