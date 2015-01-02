@@ -185,9 +185,9 @@ function load_stats(data) {
 
   var events = d3.nest()
     .key(function(d) { return d.event_description} )
-    .rollup(function(values) { return values.length; })
+    .rollup(function(values) { return {total: values.length, score: values[0].goldstein_score}; })
     .entries(data)
-  events.sort(function(a, b) { return b.values - a.values });
+  events.sort(function(a, b) { return a.values.score - b.values.score });
 
   d3.select('#actors').html('')
     .selectAll('a.top-actor')
@@ -212,12 +212,12 @@ function load_stats(data) {
 
   d3.select('#events').html('')
     .selectAll('a.top-event')
-    .data(events.slice(0, 20))
+    .data(events)
     .enter()
     .append('a')
     .attr('class', 'top-event')
     .attr('href', '#')
-    .text(function(d) { return clean_event(d.key) + ' ('+d.values+')'; })
+    .text(function(d) { return d.values.score + ': ' + clean_event(d.key) + ' ('+d.values.total+')'; })
     .on('click', function(d) { filter(data, 'event_description', d.key) });
 }
 
